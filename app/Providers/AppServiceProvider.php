@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Filament\Notifications\Notification;
 use Filament\Support\Facades\FilamentColor;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
         FilamentColor::register([
             'pup' => '#791417',
         ]);
+
     }
 }

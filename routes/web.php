@@ -67,6 +67,7 @@ Route::middleware('student')->group(function()
     Route::get('profile',\App\Livewire\Student\Profile::class)->name('student.profile');
     Route::get('chat',\App\Livewire\Student\Chat::class)->name('student.chat');
     Route::get('resume-builder',\App\Livewire\Student\Resume::class)->name('student.resume');
+    Route::get('job/application/{id}',\App\Livewire\Student\Application::class)->name('student.application');
 
 
 
