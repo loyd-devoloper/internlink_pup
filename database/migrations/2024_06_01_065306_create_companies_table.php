@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('company_profile');
-            $table->string('company_background');
+
             $table->string('company_description');
-            $table->string('company_address');
             $table->string('company_email');
             $table->string('company_contact_number');
             $table->string('password');
+            $table->string('location');
             $table->boolean('status')->default(0);
             $table->string('company_employer_name')->nullable();
             $table->timestamps();

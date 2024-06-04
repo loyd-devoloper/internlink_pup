@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('job_id');
+            $table->unsignedBigInteger('company_id');
+
             $table->unsignedBigInteger('student_id');
             $table->string('fullname');
             $table->string('email');

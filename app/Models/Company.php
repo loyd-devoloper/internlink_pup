@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Job;
+use App\Models\Review;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -23,12 +24,17 @@ class Company extends Authenticatable
         'company_contact_number',
         'password',
         'status',
+        'location',
         'company_employer_name',
     ];
 
     public function jobs()
     {
         return $this->hasMany(Job::class,'company_id','id');
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class,'company_id','id');
     }
 
 }

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Contracts\HasForms;
+
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Actions\Contracts\HasActions;
@@ -25,11 +26,6 @@ class Profile extends Component implements HasActions, HasForms
     {
 
 
-        $recipient = auth()->guard('student')->user();
-
-        Notification::make()
-            ->title('Saved successfully')
-            ->sendToDatabase($recipient);
     }
     public function modalFormAction(): Action
     {

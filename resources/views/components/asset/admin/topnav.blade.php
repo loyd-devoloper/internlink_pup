@@ -20,7 +20,7 @@
         </svg>
         <div x-cloak x-show='profile' x-transition
             class="w-[12rem] z-50 p-2 h-fit border bg-white absolute right-0 left-auto top-[2.5rem] rounded-md">
-            <a href="" class="flex gap-2 py-2 text-sm items-center px-4 hover:bg-gray-100 rounded-md"><svg
+            <a href="{{ route('admin.profile') }}" class="flex gap-2 py-2 text-sm items-center px-4 hover:bg-gray-100 rounded-md"><svg
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"

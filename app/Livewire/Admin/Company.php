@@ -59,12 +59,28 @@ class Company extends Component implements HasForms, HasTable
                                 '0' => 'Inactive'
                             ])->default(1)->required(),
                         ]),
-
+                        Select::make('location')->options([  'Manila' => 'Manila',
+                        'Quezon City' => 'Quezon City',
+                        'Caloocan' => 'Caloocan',
+                        'Las Piñas' => 'Las Piñas',
+                        'Makati' => 'Makati',
+                        'Malabon' => 'Malabon',
+                        'Mandaluyong' => 'Mandaluyong',
+                        'Marikina' => 'Marikina',
+                        'Muntinlupa' => 'Muntinlupa',
+                        'Navotas' => 'Navotas',
+                        'Parañaque' => 'Parañaque',
+                        'Pasay' => 'Pasay',
+                        'Pasig' => 'Pasig',
+                        'Pateros' => 'Pateros',
+                        'San Juan' => 'San Juan',
+                        'Taguig' => 'Taguig',
+                        'Valenzuela' => 'Valenzuela',])->required(),
                         Grid::make([
-                            'default' => 2
+                            'default' => 1
                         ])->schema([
                             FileUpload::make('company_profile')->directory('/company/profile')->required(),
-                            FileUpload::make('company_background')->directory('/company/background')->required(),
+
                         ]),
 
                         RichEditor::make('company_description')
@@ -72,10 +88,7 @@ class Company extends Component implements HasForms, HasTable
                                 'blockquote',
                                 'attachFiles',
                             ])->required(),
-                        Textarea::make('company_address')
-                            ->label('Complete Address')
-                            ->rows(3)
-                            ->cols(20)->required(),
+
                         TextInput::make('company_password')->required()->password()->revealable(),
 
                     ])->closeModalByClickingAway(false)
@@ -85,11 +98,12 @@ class Company extends Component implements HasForms, HasTable
                             'company_email' => $data['company_email'],
                             'company_contact_number' => $data['company_contact_number'],
                             'company_employer_name' => $data['company_employer_name'],
+                            'location' => $data['location'],
                             'status' => $data['status'],
                             'company_profile' => $data['company_profile'],
-                            'company_background' => $data['company_background'],
+
                             'company_description' => $data['company_description'],
-                            'company_address' => $data['company_address'],
+
                             'password' => Hash::make($data['company_password']),
                         ]);
                         Notification::make()
@@ -100,7 +114,7 @@ class Company extends Component implements HasForms, HasTable
             ])
             ->columns([
                 TextColumn::make('company_name')->searchable(),
-                TextColumn::make('company_address'),
+                TextColumn::make('location'),
                 TextColumn::make('company_email'),
 
                 BooleanColumn::make('status')->trueIcon('heroicon-o-check-circle')
@@ -130,12 +144,28 @@ class Company extends Component implements HasForms, HasTable
                                 '0' => 'Inactive'
                             ])->default(1)->required(),
                         ]),
-
+                        Select::make('location')->options([  'Manila' => 'Manila',
+                        'Quezon City' => 'Quezon City',
+                        'Caloocan' => 'Caloocan',
+                        'Las Piñas' => 'Las Piñas',
+                        'Makati' => 'Makati',
+                        'Malabon' => 'Malabon',
+                        'Mandaluyong' => 'Mandaluyong',
+                        'Marikina' => 'Marikina',
+                        'Muntinlupa' => 'Muntinlupa',
+                        'Navotas' => 'Navotas',
+                        'Parañaque' => 'Parañaque',
+                        'Pasay' => 'Pasay',
+                        'Pasig' => 'Pasig',
+                        'Pateros' => 'Pateros',
+                        'San Juan' => 'San Juan',
+                        'Taguig' => 'Taguig',
+                        'Valenzuela' => 'Valenzuela',])->required(),
                         Grid::make([
-                            'default' => 2
+                            'default' => 1
                         ])->schema([
                             FileUpload::make('company_profile')->directory('/company/profile')->required(),
-                            FileUpload::make('company_background')->directory('/company/background')->required(),
+
                         ]),
 
                         RichEditor::make('company_description')
@@ -143,10 +173,7 @@ class Company extends Component implements HasForms, HasTable
                                 'blockquote',
                                 'attachFiles',
                             ])->required(),
-                        Textarea::make('company_address')
-                            ->label('Complete Address')
-                            ->rows(3)
-                            ->cols(20)->required(),
+
                         TextInput::make('company_passwords')->label('Company Password')->password()->revealable(),
 
                     ])->closeModalByClickingAway(false)
@@ -156,11 +183,12 @@ class Company extends Component implements HasForms, HasTable
                             'company_email' => $data['company_email'],
                             'company_contact_number' => $data['company_contact_number'],
                             'company_employer_name' => $data['company_employer_name'],
+                            'location' => $data['location'],
                             'status' => $data['status'],
                             'company_profile' => $data['company_profile'],
-                            'company_background' => $data['company_background'],
+
                             'company_description' => $data['company_description'],
-                            'company_address' => $data['company_address'],
+
 
                         ]);
                         if (!!$data['company_passwords']) {

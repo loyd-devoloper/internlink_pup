@@ -42,7 +42,7 @@
             <small class="text-black/50">Posted: {{ $job->created_at->diffForHumans() }}</small>
 
             <div class="pt-6 pb-2 flex items-center gap-2">
-                <a href="{{ route('student.application',['id' => $job->id] ) }}" class="px-4 py-2 bg-blue-500 text-white rounded-md">Apply</a>
+                <a href="{{ route('student.application',['id' => $job->id,'company_id'=>$job->company_id] ) }}" class="px-4 py-2 bg-blue-500 text-white rounded-md">Apply</a>
 
                 <button wire:click='bookmarktoggle' class="px-4 py-2 bg-transparent text-black border-[1px] border-black/40 hover:opacity-60 rounded-md">
                     @if ($bookmark)
