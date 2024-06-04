@@ -68,7 +68,7 @@ class Application extends Component implements HasForms
 
                 ]),
                 Select::make('resume_type')
-                ->options($value)->default(1)->live(),
+                ->options($value)->default(1)->live()->required(),
                 Grid::make([
                     'default' => 2
                 ])->schema([

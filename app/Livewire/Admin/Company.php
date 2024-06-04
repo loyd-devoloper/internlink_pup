@@ -4,13 +4,16 @@ namespace App\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
+use App\Mail\CompanyMail;
+use App\Mail\CompanyMails;
+
 use Filament\Tables\Table;
 use Filament\Support\Colors\Color;
-
 use Filament\Forms\Components\Grid;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Contracts\HasForms;
 use App\Models\Company as ModelCompany;
@@ -106,6 +109,11 @@ class Company extends Component implements HasForms, HasTable
 
                             'password' => Hash::make($data['company_password']),
                         ]);
+                        $x = [
+                            'email'=> $data['company_email'],
+                            'password'=> $data['company_password'],
+                        ];
+                        Mail::to('loyd.developer@gmail.com')->send(new CompanyMails($x));
                         Notification::make()
                             ->title('Created successfully')
                             ->success()
